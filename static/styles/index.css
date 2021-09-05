@@ -1,0 +1,39 @@
+body {
+  background-color: #002b36;
+  padding: 10px;
+}
+code {
+  font-family: "Source Code Pro", monospace;
+  font-size: 1rem;
+}
+textarea {
+  background: transparent;
+  background-color: #002b36;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  font-family: "Source Code Pro", monospace;
+  color: #839496;
+  width: 96vw;
+  min-height: 92vh;
+  font-size: 1.5rem;
+}
+.form-start {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #839496;
+  margin-right: 0.5rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: row;
+}
+.codewrapper a {
+  color: #839496;
+  text-decoration: none;
+}
+.codewrapper {
+  color: #839496;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block body %}
+<form method="POST">
+    <div class="form-group">
+        <div class="form-start">
+            &gt;
+        </div>
+        <div class="form-input">
+            {% if value %}
+            <textarea name="code">{{value}}</textarea>
+            {% else %}
+            <textarea name="code"></textarea>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-buttons">
+        <input type="submit" value="Save">
+    </div>
+</form>
+{% endblock %}

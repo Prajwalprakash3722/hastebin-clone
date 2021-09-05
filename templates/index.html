@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}
+hastebin code-{{code.uuid}}
+{% endblock %}
+{% block body %}
+<pre><code>{{code.code}}</code></pre> <a href="/"><button>New
+
+    </button> </a>
+{% endblock %}
