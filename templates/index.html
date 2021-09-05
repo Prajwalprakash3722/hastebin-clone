@@ -3,7 +3,8 @@
 hastebin code-{{code.uuid}}
 {% endblock %}
 {% block body %}
-<pre><code>{{code.code}}</code></pre> <a href="/"><button>New
-
-    </button> </a>
+<pre><code>{{code.code}}</code></pre>
+<a href="/"><button>New</button> </a>
+<a href="/about"><button>About</button> </a>
+<a href="/raw/{{code.uuid}}"><button>Raw</button> </a>
 {% endblock %}

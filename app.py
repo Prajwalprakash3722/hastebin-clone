@@ -43,9 +43,15 @@ def post():  # sourcery skip: last-if-guard
 
 
 @app.route('/<id>', methods=['GET'])
-def sample(id):
+def code_text(id):
     code = Code.query.filter_by(uuid=id).first()
     return render_template('index.html', code=code, length=len(code.code.split('\n')))
+
+
+@app.route('/raw/<id>', methods=['GET'])
+def code_raw(id):
+    code = Code.query.filter_by(uuid=id).first()
+    return render_template('raw.html', code=code, length=len(code.code.split('\n')))
 
 
 if __name__ == '__main__':
