@@ -16,11 +16,28 @@ hastebin-{{code.uuid}}
     <a href="/about"><button>About</button> </a>
     <a href="/duplicate/{{code.id}}}"><button>Copy and Edit</button> </a>
     <a href="/raw/{{code.uuid}}"><button>Raw</button> </a>
+    <button onclick=copyToClipboard()>Share</button>
+
     <button><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="medium"
-            data-text="Sharing my code link via hastebin clone" data-via="prakash_prajwal" data-show-count="false">Share
+            data-text="Sharing my code via hastebin clone link" data-via="prakash_prajwal" data-show-count="false">Share
             your Code</a>
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </button>
 
 </div>
+{% endblock %}
+{% block scripts %}
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<script>
+    function copyToClipboard(text) {
+        var inputc = document.body.appendChild(document.createElement("input"));
+        inputc.value = window.location.href;
+        inputc.focus();
+        inputc.select();
+        document.execCommand('copy');
+        inputc.parentNode.removeChild(inputc);
+        window.alert("link copied.");
+    }
+</script>
 {% endblock %}
