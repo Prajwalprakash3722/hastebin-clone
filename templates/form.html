@@ -20,4 +20,7 @@ hastebin clone
         <input type="submit" value="Save" name="save">
     </div>
 </form>
+{% if forked %}
+<center>forked with &#9829; from <a href="/{{forked_info}}" target="_blank">this code.</a></center>
+{% endif %}
 {% endblock %}

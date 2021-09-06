@@ -12,19 +12,29 @@ hastebin-{{code.uuid}}
     <pre><code>{{code.code}}</code></pre>
 </div>
 <div class="form-buttons">
-    <a href="/"><button>New</button> </a>
-    <a href="/about"><button>About</button> </a>
-    <a href="/duplicate/{{code.id}}}"><button>Copy and Edit</button> </a>
-    <a href="/raw/{{code.uuid}}"><button>Raw</button> </a>
-    <button onclick=copyToClipboard()>Share</button>
-
-    <button><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="medium"
-            data-text="Sharing my code via hastebin clone link" data-via="prakash_prajwal" data-show-count="false">Share
-            your Code</a>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    </button>
-
+    <div class="container">
+        <div class="button-1"> <a href="/"><button>New</button> </a>
+        </div>
+        <div class="button-2"> <a href="/about"><button>About</button> </a>
+        </div>
+        <div class="button-3"> <a href="/duplicate/{{code.id}}}"><button>Fork</button> </a>
+        </div>
+        <div class="button-4"> <a href="/raw/{{code.uuid}}"><button>Raw</button> </a>
+        </div>
+        <div class="button-5"> <button onclick=copyToClipboard()>Share</button>
+        </div>
+        <div class="button-6">
+            <button><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+                    data-size="small" data-text="Sharing my code via hastebin clone link" data-via="prakash_prajwal"
+                    data-show-count="false">Share
+                    your Code</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </button></div>
+    </div>
 </div>
+{% if code.forked %}
+<center>Forked With &#9829; from <a href="/{{code.forked_from}}" target="_blank">this code.</a></center>
+{% endif %}
 {% endblock %}
 {% block scripts %}
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

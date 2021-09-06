@@ -43,7 +43,7 @@ textarea {
   top: 0;
   right: 0;
   position: fixed;
-  display: flex;
+  display: grid;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
@@ -121,4 +121,45 @@ center {
 center a {
   text-decoration: none;
   color: #839500;
+}
+.container {
+  display: grid;
+  grid-template-columns: 1/2fr 1fr 1fr;
+  grid-template-rows: 1/2fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "button-1 button-2 ."
+    "button-3 button-4 ."
+    "button-5 button-6 .";
+}
+
+.button-1 {
+  grid-area: button-1;
+  margin: 0.5rem;
+}
+
+.button-2 {
+  grid-area: button-2;
+  margin: 0.5rem;
+}
+
+.button-3 {
+  grid-area: button-3;
+  margin: 0.5rem;
+}
+
+.button-4 {
+  grid-area: button-4;
+  margin: 0.5rem;
+}
+
+.button-5 {
+  grid-area: button-5;
+  margin: 0.5rem;
+}
+
+.button-6 {
+  grid-area: button-6;
+  margin: 0.5rem;
 }

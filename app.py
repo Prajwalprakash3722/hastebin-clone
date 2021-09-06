@@ -5,7 +5,7 @@ import uuid
 import os
 app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
-#     os.path.join(app.root_path, 'code.db')
+# os.path.join(app.root_path, 'code.db')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
     'DATABASE_URL').replace('postgres', 'postgresql')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -61,21 +61,19 @@ def code_raw(id):
 
 @app.route('/duplicate/<id>', methods=['GET', 'POST'])
 def duplicate_post(id):
+    code_id = id.replace('%7D', '').replace('}', '')
     if request.method == 'GET':
-        code_id = id.replace('%7D', '').replace('}', '')
-        code = Code.query.get(code_id)
-        return render_template('form.html', value=code)
+        forking_code = Code.query.get(code_id)
+        return render_template('form.html', value=forking_code, forked=True, forked_info=forking_code.uuid)
     code = request.form['code']
     if code:
         try:
-            code_db = Code(code=code, uuid=str(uuid.uuid4()))
+            forking = Code.query.get(id)
+            code_db = Code(code=code, uuid=str(uuid.uuid4()),
+                           forked=True, forked_info=forking.uuid)
             db.session.add(code_db)
             db.session.commit()
         except:
             db.session.rollback()
             flash('Error')
     return redirect(f'/{code_db.uuid}')
-
-
-if __name__ == '__main__':
-    app.run(host='https://haste-bin-clone.herokuapp.com/')
