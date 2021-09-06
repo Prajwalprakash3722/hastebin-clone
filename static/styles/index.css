@@ -99,3 +99,26 @@ textarea {
     margin: 0.5rem;
   }
 }
+#about {
+  color: #839496;
+  font-weight: bold;
+  font-size: 1.5rem;
+  position: fixed;
+  width: 100%;
+  text-align: left;
+  align-items: center;
+}
+center {
+  color: #839496;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+center a {
+  text-decoration: none;
+  color: #839500;
+}

@@ -4,6 +4,8 @@ import datetime
 import uuid
 import os
 app = Flask(__name__)
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
+#     os.path.join(app.root_path, 'code.db')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
     'DATABASE_URL').replace('postgres', 'postgresql')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -24,7 +26,7 @@ class Code(db.Model):
 @app.route('/about', methods=['GET'])
 def index():
     codes = Code.query.all()
-    return render_template('sample.html', codes=codes)
+    return render_template('about.html', codes=codes)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -61,9 +63,8 @@ def code_raw(id):
 def duplicate_post(id):
     if request.method == 'GET':
         code_id = id.replace('%7D', '').replace('}', '')
-        print(code_id)
-        codes = Code.query.get(code_id)
-        return render_template('form.html', value=codes)
+        code = Code.query.get(code_id)
+        return render_template('form.html', value=code)
     code = request.form['code']
     if code:
         try:

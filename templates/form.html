@@ -10,9 +10,9 @@ hastebin clone
         </div>
         <div class="form-input">
             {% if value %}
-            <textarea name="code" required>{{value.code}}</textarea>
+            <textarea name="code" id="code" required>{{value.code}}</textarea>
             {% else %}
-            <textarea name="code"></textarea>
+            <textarea name="code" id="code" required></textarea>
             {% endif %}
         </div>
     </div>
