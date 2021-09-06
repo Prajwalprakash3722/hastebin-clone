@@ -1,11 +1,26 @@
 {% extends 'base.html' %}
 {% block title %}
-hastebin code-{{code.uuid}}
+hastebin-{{code.uuid}}
 {% endblock %}
 {% block body %}
-<pre><code>{{code.code}}</code></pre>
-<a href="/"><button>New</button> </a>
-<a href="/about"><button>About</button> </a>
-<a href="/duplicate/{{code.id}}}"><button>Copy and Edit</button> </a>
-<a href="/raw/{{code.uuid}}"><button>Raw</button> </a>
+{% for i in range(length)%}
+<div class="code-complete">
+    <!-- <div class="line-number">
+        {{i+1}}
+    </div>
+    {% endfor %} -->
+    <pre><code>{{code.code}}</code></pre>
+</div>
+<div class="form-buttons">
+    <a href="/"><button>New</button> </a>
+    <a href="/about"><button>About</button> </a>
+    <a href="/duplicate/{{code.id}}}"><button>Copy and Edit</button> </a>
+    <a href="/raw/{{code.uuid}}"><button>Raw</button> </a>
+    <button><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="medium"
+            data-text="Sharing my code link via hastebin clone" data-via="prakash_prajwal" data-show-count="false">Share
+            your Code</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </button>
+
+</div>
 {% endblock %}

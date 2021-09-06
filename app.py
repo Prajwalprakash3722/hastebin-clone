@@ -44,7 +44,7 @@ def code_text(id):
     code = Code.query.filter_by(uuid=id).first_or_404(
         description='There is no data with id {}'.format(id))
     # code = Code.query.filter_by(uuid=id).first()
-    return render_template('index.html', code=code)
+    return render_template('index.html', code=code, length=len(code.code.split('\n')))
 
 
 @app.route('/raw/<id>', methods=['GET'])
