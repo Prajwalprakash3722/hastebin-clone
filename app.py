@@ -5,7 +5,7 @@ import uuid
 import os
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
-    f'DATABASE_URL'.replace('postgres', 'postgresql'))
+    'DATABASE_URL').replace('postgres', 'postgresql')
 db = SQLAlchemy(app)
 
 
